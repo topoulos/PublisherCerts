@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_4170_ncmaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_4170_ncmaModelStoreContainer">
+          <EntitySet Name="certs" EntityType="DB_4170_ncmaModel.Store.certs" store:Type="Tables" store:Schema="dbo" store:Name="certs">
+            <DefiningQuery>SELECT 
+      [certs].[ID] AS [ID], 
+      [certs].[MemberID] AS [MemberID], 
+      [certs].[InstructorID] AS [InstructorID], 
+      [certs].[CertTypeID] AS [CertTypeID], 
+      [certs].[Completed] AS [Completed], 
+      [certs].[MemberActivityID] AS [MemberActivityID], 
+      [certs].[CertDate] AS [CertDate], 
+      [certs].[EndDate] AS [EndDate], 
+      [certs].[TourneyID] AS [TourneyID]
+      FROM [dbo].[certs] AS [certs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="certtype" EntityType="DB_4170_ncmaModel.Store.certtype" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="country" EntityType="DB_4170_ncmaModel.Store.country" store:Type="Tables" store:Schema="dbo" store:Name="country">
+            <DefiningQuery>SELECT 
+      [country].[ID] AS [ID], 
+      [country].[Name] AS [Name]
+      FROM [dbo].[country] AS [country]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dojo" EntityType="DB_4170_ncmaModel.Store.dojo" store:Type="Tables" store:Schema="dbo" store:Name="dojo">
+            <DefiningQuery>SELECT 
+      [dojo].[ID] AS [ID], 
+      [dojo].[Name] AS [Name], 
+      [dojo].[Style] AS [Style]
+      FROM [dbo].[dojo] AS [dojo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="dojoinstructor" EntityType="DB_4170_ncmaModel.Store.dojoinstructor" store:Type="Tables" store:Schema="dbo" store:Name="dojoinstructor">
+            <DefiningQuery>SELECT 
+      [dojoinstructor].[ID] AS [ID], 
+      [dojoinstructor].[DojoID] AS [DojoID], 
+      [dojoinstructor].[InstructorID] AS [InstructorID], 
+      [dojoinstructor].[InstructorTypeID] AS [InstructorTypeID]
+      FROM [dbo].[dojoinstructor] AS [dojoinstructor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="instructortype" EntityType="DB_4170_ncmaModel.Store.instructortype" store:Type="Tables" store:Schema="dbo" store:Name="instructortype">
+            <DefiningQuery>SELECT 
+      [instructortype].[ID] AS [ID], 
+      [instructortype].[InstructorTypeName] AS [InstructorTypeName]
+      FROM [dbo].[instructortype] AS [instructortype]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="member" EntityType="DB_4170_ncmaModel.Store.member" store:Type="Tables" store:Schema="dbo" store:Name="member">
+            <DefiningQuery>SELECT 
+      [member].[ID] AS [ID], 
+      [member].[LastName] AS [LastName], 
+      [member].[FirstName] AS [FirstName], 
+      [member].[MiddleName] AS [MiddleName], 
+      [member].[Suffix] AS [Suffix], 
+      [member].[Address1] AS [Address1], 
+      [member].[Address2] AS [Address2], 
+      [member].[Address3] AS [Address3], 
+      [member].[City] AS [City], 
+      [member].[StateID] AS [StateID], 
+      [member].[CountryID] AS [CountryID], 
+      [member].[PostalCode] AS [PostalCode], 
+      [member].[HomePhone] AS [HomePhone], 
+      [member].[CellPhone] AS [CellPhone], 
+      [member].[Email] AS [Email], 
+      [member].[DOB] AS [DOB], 
+      [member].[PlanID] AS [PlanID], 
+      [member].[DojoID] AS [DojoID], 
+      [member].[MemberTypeID] AS [MemberTypeID], 
+      [member].[DateJoined] AS [DateJoined], 
+      [member].[DateOfRank] AS [DateOfRank], 
+      [member].[RankID] AS [RankID], 
+      [member].[Active] AS [Active], 
+      [member].[DateInactive] AS [DateInactive], 
+      [member].[DateLastPaid] AS [DateLastPaid], 
+      [member].[Comments] AS [Comments]
+      FROM [dbo].[member] AS [member]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="membercerts" EntityType="DB_4170_ncmaModel.Store.membercerts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="rank" EntityType="DB_4170_ncmaModel.Store.rank" store:Type="Tables" store:Schema="dbo" store:Name="rank">
+            <DefiningQuery>SELECT 
+      [rank].[ID] AS [ID], 
+      [rank].[Name] AS [Name]
+      FROM [dbo].[rank] AS [rank]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tournament" EntityType="DB_4170_ncmaModel.Store.tournament" store:Type="Tables" store:Schema="dbo" store:Name="tournament">
+            <DefiningQuery>SELECT 
+      [tournament].[ID] AS [ID], 
+      [tournament].[Address1] AS [Address1], 
+      [tournament].[Address2] AS [Address2], 
+      [tournament].[Address3] AS [Address3], 
+      [tournament].[City] AS [City], 
+      [tournament].[StateID] AS [StateID], 
+      [tournament].[PostalCode] AS [PostalCode], 
+      [tournament].[TournDate] AS [TournDate]
+      FROM [dbo].[tournament] AS [tournament]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCertificates" EntityType="DB_4170_ncmaModel.Store.vwCertificates" store:Type="Views" store:Schema="dbo" store:Name="vwCertificates">
+            <DefiningQuery>SELECT 
+      [vwCertificates].[FullName] AS [FullName], 
+      [vwCertificates].[InstructorsName] AS [InstructorsName], 
+      [vwCertificates].[Dojo] AS [Dojo], 
+      [vwCertificates].[RankText] AS [RankText], 
+      [vwCertificates].[InstructorType] AS [InstructorType], 
+      [vwCertificates].[CertType] AS [CertType], 
+      [vwCertificates].[TournamentDate] AS [TournamentDate], 
+      [vwCertificates].[FromDate] AS [FromDate], 
+      [vwCertificates].[ThruDate] AS [ThruDate], 
+      [vwCertificates].[ID] AS [ID], 
+      [vwCertificates].[Completed] AS [Completed]
+      FROM [dbo].[vwCertificates] AS [vwCertificates]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.certs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="certs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="InstructorID" Type="int" />
+          <Property Name="CertTypeID" Type="int" />
+          <Property Name="Completed" Type="bit" />
+          <Property Name="MemberActivityID" Type="int" />
+          <Property Name="CertDate" Type="datetime2" />
+          <Property Name="EndDate" Type="datetime2" />
+          <Property Name="TourneyID" Type="int" />
+        </EntityType>
+        <EntityType Name="certtype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+          <Property Name="ValidationDurationInDays" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.dojo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dojo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Style" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.dojoinstructor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="dojoinstructor">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DojoID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="DojoID" Type="int" Nullable="false" />
+          <Property Name="InstructorID" Type="int" />
+          <Property Name="InstructorTypeID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.instructortype' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="instructortype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="InstructorTypeName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.member' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="255" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="255" />
+          <Property Name="Suffix" Type="varchar" MaxLength="255" />
+          <Property Name="Address1" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="Address3" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="12" />
+          <Property Name="HomePhone" Type="varchar" MaxLength="20" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="PlanID" Type="int" />
+          <Property Name="DojoID" Type="int" />
+          <Property Name="MemberTypeID" Type="int" />
+          <Property Name="DateJoined" Type="date" />
+          <Property Name="DateOfRank" Type="date" />
+          <Property Name="RankID" Type="int" />
+          <Property Name="Active" Type="int" Nullable="false" />
+          <Property Name="DateInactive" Type="date" />
+          <Property Name="DateLastPaid" Type="date" />
+          <Property Name="Comments" Type="text" />
+        </EntityType>
+        <EntityType Name="membercerts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="DojoID" Type="int" />
+          <Property Name="CertificateTypeID" Type="int" />
+          <Property Name="RankText" Type="nvarchar(max)" />
+          <Property Name="InstructorID" Type="int" />
+          <Property Name="InstructorTypeID" Type="int" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ThruDate" Type="datetime" />
+          <Property Name="Completed" Type="bit" />
+          <Property Name="TourneyID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.rank' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.tournament' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tournament">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="Address3" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="12" />
+          <Property Name="TournDate" Type="datetime2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_4170_ncma.dbo.vwCertificates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwCertificates">
+          <Key>
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="InstructorsName" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="FullName" Type="varchar" Nullable="false" MaxLength="1023" />
+          <Property Name="InstructorsName" Type="varchar" Nullable="false" MaxLength="1023" />
+          <Property Name="Dojo" Type="varchar" MaxLength="255" />
+          <Property Name="RankText" Type="nvarchar(max)" />
+          <Property Name="InstructorType" Type="varchar" MaxLength="255" />
+          <Property Name="CertType" Type="varchar" MaxLength="255" />
+          <Property Name="TournamentDate" Type="datetime2" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ThruDate" Type="datetime" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Completed" Type="bit" />
+        </EntityType>
+        <Function Name="aspnet_AnyDataInTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TablesToCheck" Type="int" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Applications_CreateApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ApplicationId" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_CheckSchemaVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Feature" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompatibleSchemaVersion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_ChangePasswordQuestionAndAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="NewPasswordQuestion" Type="nvarchar" Mode="In" />
+          <Parameter Name="NewPasswordAnswer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordQuestion" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordAnswer" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsApproved" Type="bit" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="UniqueEmail" Type="int" Mode="In" />
+          <Parameter Name="PasswordFormat" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_Membership_FindUsersByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailToMatch" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_FindUsersByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserNameToMatch" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetNumberOfUsersOnline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MinutesSinceLastInActive" Type="int" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaxInvalidPasswordAttempts" Type="int" Mode="In" />
+          <Parameter Name="PasswordAttemptWindow" Type="int" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="PasswordAnswer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetPasswordWithFormat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdateLastLoginActivityDate" Type="bit" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetUserByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetUserByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateLastActivity" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_GetUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateLastActivity" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_ResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaxInvalidPasswordAttempts" Type="int" Mode="In" />
+          <Parameter Name="PasswordAttemptWindow" Type="int" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="PasswordFormat" Type="int" Mode="In" />
+          <Parameter Name="PasswordAnswer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_SetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="PasswordFormat" Type="int" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_UnlockUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comment" Type="ntext" Mode="In" />
+          <Parameter Name="IsApproved" Type="bit" Mode="In" />
+          <Parameter Name="LastLoginDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastActivityDate" Type="datetime" Mode="In" />
+          <Parameter Name="UniqueEmail" Type="int" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Membership_UpdateUserInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsPasswordCorrect" Type="bit" Mode="In" />
+          <Parameter Name="UpdateLastLoginActivityDate" Type="bit" Mode="In" />
+          <Parameter Name="MaxInvalidPasswordAttempts" Type="int" Mode="In" />
+          <Parameter Name="PasswordAttemptWindow" Type="int" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="LastLoginDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastActivityDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Paths_CreatePath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="PathId" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_Personalization_GetApplicationId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ApplicationId" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAdministration_DeleteAllState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AllUsersScope" Type="bit" Mode="In" />
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Count" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAdministration_FindState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AllUsersScope" Type="bit" Mode="In" />
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAdministration_GetCountOfState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Count" Type="int" Mode="InOut" />
+          <Parameter Name="AllUsersScope" Type="bit" Mode="In" />
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAdministration_ResetSharedState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Count" Type="int" Mode="InOut" />
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAdministration_ResetUserState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Count" Type="int" Mode="InOut" />
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAllUsers_GetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAllUsers_ResetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationAllUsers_SetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageSettings" Type="image" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationPerUser_GetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationPerUser_ResetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_PersonalizationPerUser_SetPageSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageSettings" Type="image" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_DeleteInactiveProfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProfileAuthOptions" Type="int" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_DeleteProfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserNames" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_GetNumberOfInactiveProfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProfileAuthOptions" Type="int" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_GetProfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProfileAuthOptions" Type="int" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="UserNameToMatch" Type="nvarchar" Mode="In" />
+          <Parameter Name="InactiveSinceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_GetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Profile_SetProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PropertyNames" Type="ntext" Mode="In" />
+          <Parameter Name="PropertyValuesString" Type="ntext" Mode="In" />
+          <Parameter Name="PropertyValuesBinary" Type="image" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsUserAnonymous" Type="bit" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_RegisterSchemaVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Feature" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompatibleSchemaVersion" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsCurrentVersion" Type="bit" Mode="In" />
+          <Parameter Name="RemoveIncompatibleSchema" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Roles_CreateRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Roles_DeleteRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="DeleteOnlyIfRoleIsEmpty" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Roles_GetAllRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Roles_RoleExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Setup_RemoveAllRoleMembers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Setup_RestorePermissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UnRegisterSchemaVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Feature" Type="nvarchar" Mode="In" />
+          <Parameter Name="CompatibleSchemaVersion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_Users_CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsUserAnonymous" Type="bit" Mode="In" />
+          <Parameter Name="LastActivityDate" Type="datetime" Mode="In" />
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_Users_DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="TablesToDeleteFrom" Type="int" Mode="In" />
+          <Parameter Name="NumTablesDeletedFrom" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_AddUsersToRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserNames" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleNames" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentTimeUtc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_FindUsersInRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserNameToMatch" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_GetRolesForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_GetUsersInRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_IsUserInRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_UsersInRoles_RemoveUsersFromRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ApplicationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserNames" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleNames" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="aspnet_WebEvent_LogEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EventId" Type="char" Mode="In" />
+          <Parameter Name="EventTimeUtc" Type="datetime" Mode="In" />
+          <Parameter Name="EventTime" Type="datetime" Mode="In" />
+          <Parameter Name="EventType" Type="nvarchar" Mode="In" />
+          <Parameter Name="EventSequence" Type="decimal" Mode="In" />
+          <Parameter Name="EventOccurrence" Type="decimal" Mode="In" />
+          <Parameter Name="EventCode" Type="int" Mode="In" />
+          <Parameter Name="EventDetailCode" Type="int" Mode="In" />
+          <Parameter Name="Message" Type="nvarchar" Mode="In" />
+          <Parameter Name="ApplicationPath" Type="nvarchar" Mode="In" />
+          <Parameter Name="ApplicationVirtualPath" Type="nvarchar" Mode="In" />
+          <Parameter Name="MachineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="RequestUrl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ExceptionType" Type="nvarchar" Mode="In" />
+          <Parameter Name="Details" Type="ntext" Mode="In" />
+        </Function>
+        <Function Name="SetComplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="numrows" Type="int" Mode="InOut" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_4170_ncmaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DB_4170_ncmaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="certs" EntityType="DB_4170_ncmaModel.cert" />
+          <EntitySet Name="certtypes" EntityType="DB_4170_ncmaModel.certtype" />
+          <EntitySet Name="countries" EntityType="DB_4170_ncmaModel.country" />
+          <EntitySet Name="dojoes" EntityType="DB_4170_ncmaModel.dojo" />
+          <EntitySet Name="dojoinstructors" EntityType="DB_4170_ncmaModel.dojoinstructor" />
+          <EntitySet Name="instructortypes" EntityType="DB_4170_ncmaModel.instructortype" />
+          <EntitySet Name="members" EntityType="DB_4170_ncmaModel.member" />
+          <EntitySet Name="membercerts" EntityType="DB_4170_ncmaModel.membercert" />
+          <EntitySet Name="ranks" EntityType="DB_4170_ncmaModel.rank" />
+          <EntitySet Name="tournaments" EntityType="DB_4170_ncmaModel.tournament" />
+          <EntitySet Name="vwCertificates" EntityType="DB_4170_ncmaModel.vwCertificate" />
+        </EntityContainer>
+        <EntityType Name="cert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="MemberID" />
+          <Property Type="Int32" Name="InstructorID" />
+          <Property Type="Int32" Name="CertTypeID" />
+          <Property Type="Boolean" Name="Completed" />
+          <Property Type="Int32" Name="MemberActivityID" />
+          <Property Type="DateTime" Name="CertDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="Int32" Name="TourneyID" />
+        </EntityType>
+        <EntityType Name="certtype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ValidationDurationInDays" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="dojo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Style" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="dojoinstructor">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DojoID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="DojoID" Nullable="false" />
+          <Property Type="Int32" Name="InstructorID" />
+          <Property Type="Int32" Name="InstructorTypeID" />
+        </EntityType>
+        <EntityType Name="instructortype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="InstructorTypeName" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="LastName" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MiddleName" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Suffix" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StateID" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="String" Name="PostalCode" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HomePhone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CellPhone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DOB" />
+          <Property Type="Int32" Name="PlanID" />
+          <Property Type="Int32" Name="DojoID" />
+          <Property Type="Int32" Name="MemberTypeID" />
+          <Property Type="DateTime" Name="DateJoined" />
+          <Property Type="DateTime" Name="DateOfRank" />
+          <Property Type="Int32" Name="RankID" />
+          <Property Type="Int32" Name="Active" Nullable="false" />
+          <Property Type="DateTime" Name="DateInactive" />
+          <Property Type="DateTime" Name="DateLastPaid" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="membercert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MemberID" />
+          <Property Type="Int32" Name="DojoID" />
+          <Property Type="Int32" Name="CertificateTypeID" />
+          <Property Type="String" Name="RankText" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InstructorID" />
+          <Property Type="Int32" Name="InstructorTypeID" />
+          <Property Type="DateTime" Name="FromDate" />
+          <Property Type="DateTime" Name="ThruDate" />
+          <Property Type="Boolean" Name="Completed" />
+          <Property Type="Int32" Name="TourneyID" />
+        </EntityType>
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tournament">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Address1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StateID" />
+          <Property Type="String" Name="PostalCode" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="TournDate" />
+        </EntityType>
+        <EntityType Name="vwCertificate">
+          <Key>
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="InstructorsName" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InstructorsName" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Dojo" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RankText" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InstructorType" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CertType" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="TournamentDate" />
+          <Property Type="DateTime" Name="FromDate" />
+          <Property Type="DateTime" Name="ThruDate" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="Completed" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_4170_ncmaModelStoreContainer" CdmEntityContainer="DB_4170_ncmaEntities">
+          <EntitySetMapping Name="certs">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.cert">
+              <MappingFragment StoreEntitySet="certs">
+                <ScalarProperty Name="TourneyID" ColumnName="TourneyID" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CertDate" ColumnName="CertDate" />
+                <ScalarProperty Name="MemberActivityID" ColumnName="MemberActivityID" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="CertTypeID" ColumnName="CertTypeID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="certtypes">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.certtype">
+              <MappingFragment StoreEntitySet="certtype">
+                <ScalarProperty Name="ValidationDurationInDays" ColumnName="ValidationDurationInDays" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dojoes">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.dojo">
+              <MappingFragment StoreEntitySet="dojo">
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dojoinstructors">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.dojoinstructor">
+              <MappingFragment StoreEntitySet="dojoinstructor">
+                <ScalarProperty Name="InstructorTypeID" ColumnName="InstructorTypeID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="DojoID" ColumnName="DojoID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="instructortypes">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.instructortype">
+              <MappingFragment StoreEntitySet="instructortype">
+                <ScalarProperty Name="InstructorTypeName" ColumnName="InstructorTypeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="members">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="DateLastPaid" ColumnName="DateLastPaid" />
+                <ScalarProperty Name="DateInactive" ColumnName="DateInactive" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RankID" ColumnName="RankID" />
+                <ScalarProperty Name="DateOfRank" ColumnName="DateOfRank" />
+                <ScalarProperty Name="DateJoined" ColumnName="DateJoined" />
+                <ScalarProperty Name="MemberTypeID" ColumnName="MemberTypeID" />
+                <ScalarProperty Name="DojoID" ColumnName="DojoID" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="membercerts">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.membercert">
+              <MappingFragment StoreEntitySet="membercerts">
+                <ScalarProperty Name="TourneyID" ColumnName="TourneyID" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="ThruDate" ColumnName="ThruDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="InstructorTypeID" ColumnName="InstructorTypeID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="RankText" ColumnName="RankText" />
+                <ScalarProperty Name="CertificateTypeID" ColumnName="CertificateTypeID" />
+                <ScalarProperty Name="DojoID" ColumnName="DojoID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ranks">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.rank">
+              <MappingFragment StoreEntitySet="rank">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tournaments">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.tournament">
+              <MappingFragment StoreEntitySet="tournament">
+                <ScalarProperty Name="TournDate" ColumnName="TournDate" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCertificates">
+            <EntityTypeMapping TypeName="DB_4170_ncmaModel.vwCertificate">
+              <MappingFragment StoreEntitySet="vwCertificates">
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ThruDate" ColumnName="ThruDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="TournamentDate" ColumnName="TournamentDate" />
+                <ScalarProperty Name="CertType" ColumnName="CertType" />
+                <ScalarProperty Name="InstructorType" ColumnName="InstructorType" />
+                <ScalarProperty Name="RankText" ColumnName="RankText" />
+                <ScalarProperty Name="Dojo" ColumnName="Dojo" />
+                <ScalarProperty Name="InstructorsName" ColumnName="InstructorsName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Certificates" ZoomLevel="75">
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.cert" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.certtype" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.country" Width="1.5" PointX="2.75" PointY="3.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.dojo" Width="1.5" PointX="4.75" PointY="0.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.dojoinstructor" Width="1.5" PointX="4.75" PointY="3.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.instructortype" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.member" Width="1.5" PointX="0.75" PointY="6.75" Height="6.0186165364583246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.membercert" Width="1.5" PointX="2.75" PointY="6.75" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.rank" Width="1.5" PointX="6.75" PointY="3.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.tournament" Width="1.5" PointX="4.75" PointY="6.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="DB_4170_ncmaModel.vwCertificate" Width="1.5" PointX="7.375" PointY="6.75" Height="3.1340950520833388" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

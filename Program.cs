@@ -21,12 +21,16 @@ namespace PublisherCerts2
         static void Main(string[] args)
         {
             Publisher.RunMSPublisher();
-            //timer = new Timer();
-            //timer.Interval = 120000;
-            //timer.Elapsed +=new ElapsedEventHandler(timer_Elapsed);
+            Timer timer = new Timer();
+            timer.Interval = 1200000;
+            timer.Elapsed +=new ElapsedEventHandler(timer_Elapsed);
           
-            //start_timer();
+            start_timer(timer);
             //Console.ReadLine();
+        }
+
+        private static void KillPub()
+        {
             try
             {
                 foreach (Process proc in Process.GetProcessesByName("MSPUB"))
@@ -39,14 +43,15 @@ namespace PublisherCerts2
                 //MessageBox.Show(ex.Message);
             }
         }
-    //    static void timer_Elapsed(object sender, ElapsedEventArgs e)
-    //    {
-    //        Publisher.RunMSPublisher();
-          
-    //    }
-    //    private static void start_timer()
-    //    {
-    //        timer.Start();
-    //    }
+        static void timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            KillPub();
+            
+
+        }
+        private static void start_timer(Timer timer)
+        {
+            timer.Start();
+        }
     }
 }

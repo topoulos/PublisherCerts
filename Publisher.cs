@@ -99,8 +99,15 @@ namespace PublisherCerts2
 
 
             }
-            app.Quit();
-            GC.Collect();
+            if (app != null)
+            {
+                ((Microsoft.Office.Interop.Publisher._Application)app).Quit();
+                app = null;
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
         }
         public static bool SaveComplete(int id)
         {

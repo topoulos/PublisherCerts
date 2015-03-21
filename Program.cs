@@ -21,11 +21,12 @@ namespace PublisherCerts2
         static void Main(string[] args)
         {
             Publisher.RunMSPublisher();
-            Timer timer = new Timer();
-            timer.Interval = 1200000;
-            timer.Elapsed +=new ElapsedEventHandler(timer_Elapsed);
+            //Timer timer = new Timer();
+            //timer.Interval = 1200000;
+            //timer.Elapsed +=new ElapsedEventHandler(timer_Elapsed);
+            //timer.Enabled = true;
           
-            start_timer(timer);
+            //start_timer(timer);
             //Console.ReadLine();
         }
 

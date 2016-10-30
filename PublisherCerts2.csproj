@@ -33,17 +33,17 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>\\certs\c%24\PublisherCerts2\</OutputPath>
@@ -61,10 +61,35 @@
     <ManifestKeyFile>PublisherCerts2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>2</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>\\certs\c%24\PublisherCerts2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Publisher, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -76,6 +101,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +120,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Certificates.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CertTypes.cs" />
+    <Compile Include="DocumentDictionary.cs" />
+    <Compile Include="InstructorTypes.cs" />
     <Compile Include="LogData.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +138,7 @@
     <Compile Include="Request.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TemplateNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Certificates.edmx">
@@ -118,10 +148,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DB_4170_ncmaEntities.datasource" />
     <None Include="PublisherCerts2_TemporaryKey.pfx" />
-    <None Include="Templates\hanseminar.pub" />
-    <None Include="Templates\instructor.pub" />
+    <Content Include="Templates\hanseminar.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\instructor.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Templates\masters\Fonts\Calligra.ttf" />
     <None Include="Templates\masters\Fonts\TIMES.TTF" />
     <None Include="Templates\masters\Fonts\TIMESBD.TTF" />
@@ -137,14 +172,30 @@
     <None Include="Templates\masters\WorkingCopies\Member.psd" />
     <None Include="Templates\masters\WorkingCopies\Rank.psd" />
     <None Include="Templates\masters\WorkingCopies\School.psd" />
-    <None Include="Templates\member.pub" />
-    <None Include="Templates\rank.pub" />
-    <None Include="Templates\rankboard.pub" />
-    <None Include="Templates\school.pub" />
-    <None Include="Templates\tenshiinstructor.pub" />
-    <None Include="Templates\tenshimember.pub" />
-    <None Include="Templates\tenshirank.pub" />
-    <None Include="Templates\tenshischool.pub" />
+    <Content Include="Templates\member.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\rank.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\rankboard.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\school.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\tenshiinstructor.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\tenshimember.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\tenshirank.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\tenshischool.pub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

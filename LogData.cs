@@ -11,7 +11,7 @@ namespace PublisherCerts2
     {
         public static void LogLine(string strLogText)
         {
-            string logPath = ConfigurationSettingsAlias.AppSettings.Get("CertificateLogFile");
+            string logPath = "certslog.txt";
 
             // Create a writer and open the file:
             StreamWriter log;

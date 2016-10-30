@@ -1,126 +1,111 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using System.Windows.Forms;
 using Microsoft.Office.Interop.Publisher;
-using System.Reflection;
-using System.Security.Permissions;
-using System.Data.SqlClient;
-using System.Data;
-using System.ComponentModel;
+using Application = Microsoft.Office.Interop.Publisher.Application;
 
 namespace PublisherCerts2
 {
     public static class Publisher
     {
-        public static string templateDirectory = System.Configuration.ConfigurationSettings.AppSettings.Get("CertificatePathWithTrailingSlash");
-        public static bool ShowWindow = bool.Parse(System.Configuration.ConfigurationSettings.AppSettings.Get("ShowConsoleWindow"));
-        public static void RunMSPublisher()
+#pragma warning disable CS0618 // Type or member is obsolete
+        public static bool ShowWindow = bool.Parse(ConfigurationSettings.AppSettings.Get("ShowConsoleWindow"));
+#pragma warning restore CS0618 // Type or member is obsolete
+        public static string TemplateDirectory = System.IO.Directory.GetCurrentDirectory() + @"\Templates\";
+        public static bool isDebugging = false;
+
+        private static void PrintOutCertificate(_Application app, vwCertificate certificate)
         {
-           
-            if(ShowWindow)Console.WriteLine("Checking for Certificates");
-            Application app = new Application();
-            app.ActiveWindow.Visible = false;
-            Document doc;
-            DB_4170_ncmaEntities dbcontext = new DB_4170_ncmaEntities();
-
-            var query = from c in dbcontext.vwCertificates
-                        where c.Completed != true || c.Completed == null
-                        select c;
-
-            IEnumerable<vwCertificate> certs = query.ToList();
-
-            if(ShowWindow)Console.WriteLine(certs.Count() + " Found.");
-
-            foreach (vwCertificate certificate in certs)
+            if (isDebugging)
             {
-                LogData.LogLine(String.Format("{0} {1} {2}", certificate.CertType, certificate.Dojo, certificate.FullName));
-                switch (certificate.CertType)
-                {
-                    case "Membership":
-                        doc = app.Open(templateDirectory + "member.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintMember(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "School Charter":
-                        doc = app.Open(templateDirectory + "school.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintSchool(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Rank":
-                        doc = app.Open(templateDirectory + "rank.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintRank(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        //dbcontext.SaveChanges();
-                        doc.Close();
-                        break;
-                    case "Instructor":
-                        doc = app.Open(templateDirectory + "instructor.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        certificate.InstructorType = "Instructor";
-                        PrintOut.PrintInstructor(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Chief Instructor":
-                        doc = app.Open(templateDirectory + "instructor.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        certificate.InstructorType = "Chief Instructor";
-                        PrintOut.PrintInstructor(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Tenshi Membership":
-                        doc = app.Open(templateDirectory + "tenshimember.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintTenshiMember(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Tenshi School Charter":
-                        doc = app.Open(templateDirectory + "tenshischool.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintTenshiSchool(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Tenshi Rank":
-                        doc = app.Open(templateDirectory + "tenshirank.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintTenshiRank(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
-                    case "Tenshi Instructor":
-                        doc = app.Open(templateDirectory + "tenshiinstructor.pub", true, true, PbSaveOptions.pbDoNotSaveChanges);
-                        PrintOut.PrintTenshiInstructor(ref doc, certificate);
-                        SaveComplete(certificate.ID);
-                        doc.Close();
-                        break;
+                MessageBox.Show("In Printout Certificates", "debugging", MessageBoxButtons.OK);
+                Debugger.Break();
 
+            }
+            string fileName = DocumentDictionary.CertDictionary[certificate.CertType];
+
+            Document doc = app.Open(TemplateDirectory + fileName, true, true, PbSaveOptions.pbDoNotSaveChanges);
+
+            if (certificate.CertType == CertTypes.ChiefInstructor)
+            {
+                certificate.InstructorType = InstructorTypes.ChiefInstructor;
+            }
+            if (certificate.CertType == CertTypes.Instructor)
+            {
+                certificate.InstructorType = InstructorTypes.Instructor;
+            }
+
+            if (certificate.CertType == CertTypes.Membership)
+                PrintOut.PrintMember(ref doc, certificate);
+            if (certificate.CertType == CertTypes.ChiefInstructor)
+                PrintOut.PrintInstructor(ref doc, certificate);
+            if (certificate.CertType == CertTypes.Instructor)
+                PrintOut.PrintInstructor(ref doc, certificate);
+            if (certificate.CertType == CertTypes.Rank)
+                PrintOut.PrintRank(ref doc, certificate);
+            if (certificate.CertType == CertTypes.SchoolCharter)
+                PrintOut.PrintSchool(ref doc, certificate);
+            if (certificate.CertType == CertTypes.TenshiInstructor)
+                PrintOut.PrintTenshiInstructor(ref doc, certificate);
+            if (certificate.CertType == CertTypes.TenshiMembership)
+                PrintOut.PrintTenshiMember(ref doc, certificate);
+            if (certificate.CertType == CertTypes.TenshiRank)
+                PrintOut.PrintTenshiRank(ref doc, certificate);
+            if (certificate.CertType == CertTypes.TenshiSchoolCharter)
+                PrintOut.PrintTenshiSchool(ref doc, certificate);
+
+            SaveComplete(certificate.ID);
+            doc.Close();
+            System.Threading.Thread.Sleep(new TimeSpan(0,0,5));
+        }
+
+        public static void RunMsPublisher()
+        {
+            if (ShowWindow)
+            {
+                Console.WriteLine("Checking for Certificates");
+            }
+            var app = new Application();
+            app.ActiveWindow.Visible = false;
+
+            using (var dbcontext = new DB_4170_ncmaEntities())
+            {
+                List<vwCertificate> certs = dbcontext.vwCertificates
+                    .Where(c => !c.Completed.Value || !c.Completed.HasValue)
+                    .ToList();
+
+                if (ShowWindow)
+                {
+                    Console.WriteLine(certs.Count() + " Found.");
                 }
 
-
+                foreach (vwCertificate certificate in certs)
+                {
+                    LogData.LogLine($"{certificate.CertType} {certificate.Dojo} {certificate.FullName} {certificate.ID}");
+                    PrintOutCertificate(app, certificate);
+                }
             }
-            if (app != null)
-            {
-                ((Microsoft.Office.Interop.Publisher._Application)app).Quit();
-                app = null;
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-            }
+            app.Quit();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
+
         public static bool SaveComplete(int id)
         {
-            DB_4170_ncmaEntities context = new DB_4170_ncmaEntities();
-            var query = from c in context.membercerts
-                        where c.ID == id
-                        select c;
-            IEnumerable<membercert> certs = query.ToList();
-            membercert RetCert = certs.SingleOrDefault();
-            RetCert.Completed = true;
-            return context.SaveChanges() == 1 ? true : false;
-
+            using (var context = new DB_4170_ncmaEntities())
+            {
+                membercert retCert = context.membercerts.FirstOrDefault(c => c.ID == id);
+                if (retCert != null)
+                {
+                    retCert.Completed = true;
+                }
+                return context.SaveChanges() == 1;
+            }
         }
-
     }
 }

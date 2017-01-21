@@ -6,13 +6,14 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Publisher;
 using Application = Microsoft.Office.Interop.Publisher.Application;
+using System.Threading;
 
 namespace PublisherCerts2
 {
     public static class Publisher
     {
 #pragma warning disable CS0618 // Type or member is obsolete
-        public static bool ShowWindow = bool.Parse(ConfigurationSettings.AppSettings.Get("ShowConsoleWindow"));
+        public static bool ShowWindow = true; // bool.Parse(ConfigurationSettings.AppSettings.Get("ShowConsoleWindow"));
 #pragma warning restore CS0618 // Type or member is obsolete
         public static string TemplateDirectory = System.IO.Directory.GetCurrentDirectory() + @"\Templates\";
         public static bool isDebugging = false;
@@ -64,12 +65,13 @@ namespace PublisherCerts2
 
         public static void RunMsPublisher()
         {
+            Thread.Sleep(40000);
             if (ShowWindow)
             {
                 Console.WriteLine("Checking for Certificates");
             }
             var app = new Application();
-            app.ActiveWindow.Visible = false;
+            app.ActiveWindow.Visible = true;
 
             using (var dbcontext = new DB_4170_ncmaEntities())
             {

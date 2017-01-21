@@ -92,7 +92,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Interop.Publisher, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+    <Reference Include="Interop.Microsoft.Office.Interop.Publisher, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Interop.Microsoft.Office.Interop.Publisher.2.2.0.0\lib\net40\Interop.Microsoft.Office.Interop.Publisher.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -107,12 +108,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Vici.Core">
-      <HintPath>..\..\..\..\Vici.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Vici.WinService">
-      <HintPath>..\..\..\..\Vici.WinService.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Certificates.Designer.cs">
@@ -148,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DB_4170_ncmaEntities.datasource" />
     <None Include="PublisherCerts2_TemporaryKey.pfx" />

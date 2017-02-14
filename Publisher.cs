@@ -65,7 +65,7 @@ namespace PublisherCerts2
 
         public static void RunMsPublisher()
         {
-            Thread.Sleep(40000);
+            //Thread.Sleep(40000);
             if (ShowWindow)
             {
                 Console.WriteLine("Checking for Certificates");

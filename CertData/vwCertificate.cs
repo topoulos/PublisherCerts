@@ -14,6 +14,8 @@ namespace CertData
     
     public partial class vwCertificate
     {
+        public int ID { get; set; }
+        public Nullable<bool> Completed { get; set; }
         public string FullName { get; set; }
         public string InstructorsName { get; set; }
         public string Dojo { get; set; }
@@ -23,8 +25,6 @@ namespace CertData
         public Nullable<System.DateTime> TournamentDate { get; set; }
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ThruDate { get; set; }
-        public int ID { get; set; }
-        public Nullable<bool> Completed { get; set; }
         public Nullable<int> InstructorTypeID { get; set; }
         public Nullable<int> TournamentID { get; set; }
         public Nullable<int> MemberID { get; set; }

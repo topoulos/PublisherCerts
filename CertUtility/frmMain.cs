@@ -64,5 +64,47 @@ namespace CertUtility
                 cert.Completed = completed;
             }
         }
+
+        private async void frmMain_Load(object sender, EventArgs e)
+        {
+            await RefreshDataGridAsync();
+
+
+        }
+
+        private async Task RefreshDataGridAsync()
+        {
+            var certs = await CertRepository.GetCertsOrderById();
+            dgCerts.DataSource = certs;
+            dgCerts.MultiSelect = true;
+        }
+
+        private async void btnSetSelectedIncomplete_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in dgCerts.SelectedRows)
+            {
+                var id = (int)row.Cells[0].Value;
+                await CertRepository.SaveIncompleteAsync(id);
+            }
+            await RefreshDataGridAsync();
+        }
+
+        private async void btnSetSeletedComplete_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgCerts.SelectedRows)
+            {
+                var id = (int)row.Cells[0].Value;
+                await CertRepository.SaveCompleteAsync(id);
+            }
+            await RefreshDataGridAsync();
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.Trim();
+            var certs = await CertRepository.SearchCertificatesAsync(searchTerm);
+            dgCerts.DataSource = certs;
+            dgCerts.MultiSelect = true;
+        }
     }
 }

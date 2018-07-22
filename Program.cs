@@ -5,13 +5,13 @@ namespace PublisherCerts2
 {
     internal class Program
     {
-        private static async Task Main(string[] args)
+        private static void Main(string[] args)
         {
 
             Console.WriteLine("Starting Certs Checker");
             while (true)
             {
-                await Publisher.RunMsPublisher();
+                Publisher.RunMsPublisher().Wait();
                 Console.WriteLine("Waiting...");
                 System.Threading.Thread.Sleep(1000 * 60 * 5);
             }

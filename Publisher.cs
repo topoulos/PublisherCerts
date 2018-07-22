@@ -100,21 +100,41 @@ namespace PublisherCerts2
             {
                 Console.WriteLine("Checking for Certificates");
             }
-            var app = new Application();
-            app.ActiveWindow.Visible = true;
 
             var certs = await CertRepository.GetNewCertificatesAsync();
+            var batchId = DateTime.Now.ToString("yyyyMMdd-HHmm");
 
             if (ShowWindow)
             {
-                Console.WriteLine(certs.Count() + " Found.");
+                Console.WriteLine(certs.Count() + " Found.  Batch Id = " + batchId);
             }
 
+            if (!certs.Any())
+                return;
+
+
+            LogData.LogLine("FOUND:" + batchId + "=================================================================================");
+            foreach(var cert in certs)
+            {
+                Console.WriteLine(cert.ID + " - " + cert.CertType + " - " + cert.Dojo + " = "  + cert.FullName + " = " + batchId);
+                LogData.LogLine($"{cert.CertType} - {cert.Dojo} - {cert.FullName} - {cert.ID} - {batchId}");
+
+            }
+            LogData.LogLine($" ");
+            LogData.LogLine($" ");
+
+            var app = new Application();
+            app.ActiveWindow.Visible = true;
+
+
+            LogData.LogLine("PRINTING:" + batchId + "=================================================================================");
             foreach (vwCertificate certificate in certs)
             {
-                LogData.LogLine($"{certificate.CertType} {certificate.Dojo} {certificate.FullName} {certificate.ID}");
                 await PrintOutCertificateAsync(app, certificate);
+                LogData.LogLine($"{certificate.CertType} - {certificate.Dojo} - {certificate.FullName} - {certificate.ID}");
             }
+            LogData.LogLine($" ");
+            LogData.LogLine($" ");
 
             app.Quit();
 

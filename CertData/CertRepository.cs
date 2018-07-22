@@ -31,6 +31,32 @@ namespace CertData
             }
         }
 
+        public static async Task<List<vwCertificate>> SearchCertificatesAsync(string searchTerm)
+        {
+            using (var context = new NcmaContext())
+            {
+                return await context.vwCertificates
+                    .Where(c => c.FullName.Contains(searchTerm)
+                        || c.Dojo.Contains(searchTerm)
+                        || c.InstructorsName.Contains(searchTerm)
+                        || c.RankText.Contains(searchTerm)).OrderByDescending(c => c.ID)
+                    .ToListAsync();
+            }
+        }
+
+        public static async Task SaveIncompleteAsync(int certId)
+        {
+            using (var context = new NcmaContext())
+            {
+                membercert retCert = context.membercerts.FirstOrDefault(c => c.ID == certId);
+                if (retCert != null)
+                {
+                    retCert.Completed = false;
+                }
+                await context.SaveChangesAsync();
+            }
+        }
+
         public static async Task<List<vwCertificate>> GetNewCertificatesAsync()
         {
             using (var context = new NcmaContext())
@@ -40,5 +66,18 @@ namespace CertData
                     .ToListAsync();
             }
         }
+
+        public static async Task<List<vwCertificate>> GetCertsOrderById()
+        {
+            using (var context = new NcmaContext())
+            {
+                var certs = await context.vwCertificates
+                    .OrderByDescending(c => c.ID)
+                    .ToListAsync();
+
+                return certs;
+            }
+        }
+
     }
 }

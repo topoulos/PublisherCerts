@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Office.Interop.Publisher;
+using CertData;
+using System.Configuration;
 
 namespace PublisherCerts2
 {
     public static class PrintOut
     {
-        public static string dateFormatString = System.Configuration.ConfigurationSettings.AppSettings.Get("DateFormatString");
+        public static string dateFormatString = ConfigurationManager.AppSettings.Get("DateFormatString");
         public static void PrintMember(ref Document doc, vwCertificate certificate)
         {
             Page pg = doc.Pages[1];

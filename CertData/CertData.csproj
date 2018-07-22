@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36710BB4-1409-413F-A4E9-A43F3C3D1F61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CertData</RootNamespace>
+    <AssemblyName>CertData</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="applicant.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_UsersInRoles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="blacklist.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cert.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="certificate.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="certtype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CertRepository.cs" />
+    <Compile Include="country.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dojo.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dojoinstructor.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLastDoneCerts_sp_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inactive.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inactivemember.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="instructortype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="invoice.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="issuetype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lineitem.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="member.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="memberactivity.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="memberactivitytype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="membercert.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="memberdiscount.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="memberissue.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="membertype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NcmaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NcmaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NcmaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NcmaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NcmaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="prodcat.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rank.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_applicantSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_applicantUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_blacklistInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_blacklistSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_blacklistUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_certtypeInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_certtypeSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_certtypeUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_countryInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_countrySelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_countryUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoinstructorInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoinstructorSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoinstructorUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_dojoUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_membercertsInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_membercertsSelect_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_membercertsUpdate_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_memberInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_TestmemberInsert_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_Unlock_Hanshi_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="state.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tournachievementtype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tournament.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tourncomptype.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tourndivision.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tournresult.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwActiveInstructor.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAllGridLookup.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCertificate.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInactiveGridLookup.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvoice.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMemberGrid.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMemberGridLookup.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMemberLookup.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwTournResult.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Applications.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Profiles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Roles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_Users.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="NcmaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NcmaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NcmaModel.edmx.diagram">
+      <DependentUpon>NcmaModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NcmaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NcmaModel.edmx</DependentUpon>
+      <LastGenOutput>NcmaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NcmaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NcmaModel.edmx</DependentUpon>
+      <LastGenOutput>NcmaModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

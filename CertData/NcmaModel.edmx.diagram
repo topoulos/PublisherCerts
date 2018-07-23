@@ -31,29 +31,40 @@
         <EntityTypeShape EntityType="NcmaNamespace.tourncomptype" Width="1.5" PointX="12.75" PointY="6.75" />
         <EntityTypeShape EntityType="NcmaNamespace.tourndivision" Width="1.5" PointX="12.75" PointY="9.75" />
         <EntityTypeShape EntityType="NcmaNamespace.tournresult" Width="1.5" PointX="10.75" PointY="12.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.inactive" Width="1.5" PointX="12.75" PointY="12.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.inactivemember" Width="1.5" PointX="6.75" PointY="13.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.memberissue" Width="1.5" PointX="14.75" PointY="0.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.membertype" Width="1.5" PointX="14.75" PointY="3.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.rank" Width="1.5" PointX="14.75" PointY="6.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Applications" Width="1.5" PointX="14.75" PointY="9.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_MembershipUsers" Width="1.5" PointX="14.75" PointY="12.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Profiles" Width="1.5" PointX="0.75" PointY="15.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Roles" Width="1.5" PointX="8.75" PointY="15.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Users" Width="1.5" PointX="16.75" PointY="0.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_UsersInRoles" Width="1.5" PointX="2.75" PointY="16.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="16.75" PointY="4.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="16.75" PointY="7.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_User" Width="1.5" PointX="16.75" PointY="10.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwActiveInstructor" Width="1.5" PointX="16.75" PointY="13.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwAllGridLookup" Width="1.5" PointX="18.75" PointY="0.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwCertificate" Width="1.5" PointX="18.75" PointY="5.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwInactiveGridLookup" Width="1.5" PointX="8.75" PointY="18.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwInvoice" Width="1.5" PointX="18.75" PointY="11.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwMemberGrid" Width="1.5" PointX="0.75" PointY="19.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwMemberGridLookup" Width="1.5" PointX="2.75" PointY="19.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwMemberLookup" Width="1.5" PointX="10.75" PointY="19.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwTournResult" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Applications" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Membership" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Paths" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_PersonalizationAllUsers" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_PersonalizationPerUser" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Profile" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Roles" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_Users" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_UsersInRoles" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.aspnet_WebEvent_Events" Width="1.5" PointX="12.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.inactive" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.inactivemember" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.memberissue" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.membertype" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.rank" Width="1.5" PointX="16.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Applications" Width="1.5" PointX="16.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_MembershipUsers" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Profiles" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Roles" Width="1.5" PointX="18.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_Users" Width="1.5" PointX="18.75" PointY="6.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_UsersInRoles" Width="1.5" PointX="18.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="18.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="18.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_User" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwActiveInstructor" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwAllGridLookup" Width="1.5" PointX="4.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwCertificate" Width="1.5" PointX="6.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwInactiveGridLookup" Width="1.5" PointX="8.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwInvoice" Width="1.5" PointX="18.75" PointY="19.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwMemberGrid" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwMemberGridLookup" Width="1.5" PointX="20.75" PointY="5.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwMemberLookup" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwTournResult" Width="1.5" PointX="10.75" PointY="20.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

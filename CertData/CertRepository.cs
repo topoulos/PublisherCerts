@@ -67,7 +67,7 @@ namespace CertData
             }
         }
 
-        public static async Task<List<vwCertificate>> GetCertsOrderById()
+        public static async Task<List<vwCertificate>> GetAllCertsAsync()
         {
             using (var context = new NcmaContext())
             {
@@ -79,5 +79,15 @@ namespace CertData
             }
         }
 
+        public static async Task<List<vwCertificate>> SearchCertificatesByIdRangeAsync(int startId, int stopId)
+        {
+            using (var context = new NcmaContext())
+            {
+                return await context.vwCertificates
+                    .Where(c => c.ID >= startId && c.ID <= stopId)
+                    .OrderByDescending(c => c.ID)
+                    .ToListAsync();
+            }
+        }
     }
 }

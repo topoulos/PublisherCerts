@@ -35,6 +35,203 @@
           <Property Name="InputIntoNCMADate" Type="datetime2" Precision="7" />
           <Property Name="DojoName" Type="varchar" MaxLength="255" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Applications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="LoweredApplicationName" />
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Membership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordFormat" />
+            <PropertyRef Name="PasswordSalt" />
+            <PropertyRef Name="IsApproved" />
+            <PropertyRef Name="IsLockedOut" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="LastLoginDate" />
+            <PropertyRef Name="LastPasswordChangedDate" />
+            <PropertyRef Name="LastLockoutDate" />
+            <PropertyRef Name="FailedPasswordAttemptCount" />
+            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Paths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="Path" />
+            <PropertyRef Name="LoweredPath" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredPath" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_PersonalizationAllUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_PersonalizationPerUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Profile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PropertyNames" />
+            <PropertyRef Name="PropertyValuesString" />
+            <PropertyRef Name="PropertyValuesBinary" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="LoweredRoleName" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_SchemaVersions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+            <PropertyRef Name="IsCurrentVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LoweredUserName" />
+            <PropertyRef Name="IsAnonymous" />
+            <PropertyRef Name="LastActivityDate" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_UsersInRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_4170_ncma.dbo.aspnet_WebEvent_Events' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="EventTimeUtc" />
+            <PropertyRef Name="EventTime" />
+            <PropertyRef Name="EventType" />
+            <PropertyRef Name="EventSequence" />
+            <PropertyRef Name="EventOccurrence" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="EventDetailCode" />
+            <PropertyRef Name="MachineName" />
+          </Key>
+          <Property Name="EventId" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="EventSequence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
         <EntityType Name="blacklist">
           <Key>
             <PropertyRef Name="ID" />
@@ -589,13 +786,11 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwCertificates' does not have a p
         <EntityType Name="vwCertificates">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="FullName" />
-            <PropertyRef Name="InstructorsName" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Completed" Type="bit" />
-          <Property Name="FullName" Type="varchar" MaxLength="233" Nullable="false" />
-          <Property Name="InstructorsName" Type="varchar" MaxLength="233" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="8000" />
+          <Property Name="InstructorsName" Type="varchar" MaxLength="8000" />
           <Property Name="Dojo" Type="varchar" MaxLength="255" />
           <Property Name="RankText" Type="nvarchar(max)" />
           <Property Name="InstructorType" Type="varchar" MaxLength="255" />
@@ -1416,6 +1611,124 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <EntitySet Name="tourncomptype" EntityType="Self.tourncomptype" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tourndivision" EntityType="Self.tourndivision" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tournresult" EntityType="Self.tournresult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Applications].[ApplicationName] AS [ApplicationName], 
+    [aspnet_Applications].[LoweredApplicationName] AS [LoweredApplicationName], 
+    [aspnet_Applications].[ApplicationId] AS [ApplicationId], 
+    [aspnet_Applications].[Description] AS [Description]
+    FROM [dbo].[aspnet_Applications] AS [aspnet_Applications]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Membership].[ApplicationId] AS [ApplicationId], 
+    [aspnet_Membership].[UserId] AS [UserId], 
+    [aspnet_Membership].[Password] AS [Password], 
+    [aspnet_Membership].[PasswordFormat] AS [PasswordFormat], 
+    [aspnet_Membership].[PasswordSalt] AS [PasswordSalt], 
+    [aspnet_Membership].[MobilePIN] AS [MobilePIN], 
+    [aspnet_Membership].[Email] AS [Email], 
+    [aspnet_Membership].[LoweredEmail] AS [LoweredEmail], 
+    [aspnet_Membership].[PasswordQuestion] AS [PasswordQuestion], 
+    [aspnet_Membership].[PasswordAnswer] AS [PasswordAnswer], 
+    [aspnet_Membership].[IsApproved] AS [IsApproved], 
+    [aspnet_Membership].[IsLockedOut] AS [IsLockedOut], 
+    [aspnet_Membership].[CreateDate] AS [CreateDate], 
+    [aspnet_Membership].[LastLoginDate] AS [LastLoginDate], 
+    [aspnet_Membership].[LastPasswordChangedDate] AS [LastPasswordChangedDate], 
+    [aspnet_Membership].[LastLockoutDate] AS [LastLockoutDate], 
+    [aspnet_Membership].[FailedPasswordAttemptCount] AS [FailedPasswordAttemptCount], 
+    [aspnet_Membership].[FailedPasswordAttemptWindowStart] AS [FailedPasswordAttemptWindowStart], 
+    [aspnet_Membership].[FailedPasswordAnswerAttemptCount] AS [FailedPasswordAnswerAttemptCount], 
+    [aspnet_Membership].[FailedPasswordAnswerAttemptWindowStart] AS [FailedPasswordAnswerAttemptWindowStart], 
+    [aspnet_Membership].[Comment] AS [Comment]
+    FROM [dbo].[aspnet_Membership] AS [aspnet_Membership]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Paths].[ApplicationId] AS [ApplicationId], 
+    [aspnet_Paths].[PathId] AS [PathId], 
+    [aspnet_Paths].[Path] AS [Path], 
+    [aspnet_Paths].[LoweredPath] AS [LoweredPath]
+    FROM [dbo].[aspnet_Paths] AS [aspnet_Paths]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_PersonalizationAllUsers].[PathId] AS [PathId], 
+    [aspnet_PersonalizationAllUsers].[PageSettings] AS [PageSettings], 
+    [aspnet_PersonalizationAllUsers].[LastUpdatedDate] AS [LastUpdatedDate]
+    FROM [dbo].[aspnet_PersonalizationAllUsers] AS [aspnet_PersonalizationAllUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_PersonalizationPerUser].[Id] AS [Id], 
+    [aspnet_PersonalizationPerUser].[PathId] AS [PathId], 
+    [aspnet_PersonalizationPerUser].[UserId] AS [UserId], 
+    [aspnet_PersonalizationPerUser].[PageSettings] AS [PageSettings], 
+    [aspnet_PersonalizationPerUser].[LastUpdatedDate] AS [LastUpdatedDate]
+    FROM [dbo].[aspnet_PersonalizationPerUser] AS [aspnet_PersonalizationPerUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Profile].[UserId] AS [UserId], 
+    [aspnet_Profile].[PropertyNames] AS [PropertyNames], 
+    [aspnet_Profile].[PropertyValuesString] AS [PropertyValuesString], 
+    [aspnet_Profile].[PropertyValuesBinary] AS [PropertyValuesBinary], 
+    [aspnet_Profile].[LastUpdatedDate] AS [LastUpdatedDate]
+    FROM [dbo].[aspnet_Profile] AS [aspnet_Profile]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Roles].[ApplicationId] AS [ApplicationId], 
+    [aspnet_Roles].[RoleId] AS [RoleId], 
+    [aspnet_Roles].[RoleName] AS [RoleName], 
+    [aspnet_Roles].[LoweredRoleName] AS [LoweredRoleName], 
+    [aspnet_Roles].[Description] AS [Description]
+    FROM [dbo].[aspnet_Roles] AS [aspnet_Roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_SchemaVersions].[Feature] AS [Feature], 
+    [aspnet_SchemaVersions].[CompatibleSchemaVersion] AS [CompatibleSchemaVersion], 
+    [aspnet_SchemaVersions].[IsCurrentVersion] AS [IsCurrentVersion]
+    FROM [dbo].[aspnet_SchemaVersions] AS [aspnet_SchemaVersions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_Users].[ApplicationId] AS [ApplicationId], 
+    [aspnet_Users].[UserId] AS [UserId], 
+    [aspnet_Users].[UserName] AS [UserName], 
+    [aspnet_Users].[LoweredUserName] AS [LoweredUserName], 
+    [aspnet_Users].[MobileAlias] AS [MobileAlias], 
+    [aspnet_Users].[IsAnonymous] AS [IsAnonymous], 
+    [aspnet_Users].[LastActivityDate] AS [LastActivityDate]
+    FROM [dbo].[aspnet_Users] AS [aspnet_Users]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_UsersInRoles].[UserId] AS [UserId], 
+    [aspnet_UsersInRoles].[RoleId] AS [RoleId]
+    FROM [dbo].[aspnet_UsersInRoles] AS [aspnet_UsersInRoles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [aspnet_WebEvent_Events].[EventId] AS [EventId], 
+    [aspnet_WebEvent_Events].[EventTimeUtc] AS [EventTimeUtc], 
+    [aspnet_WebEvent_Events].[EventTime] AS [EventTime], 
+    [aspnet_WebEvent_Events].[EventType] AS [EventType], 
+    [aspnet_WebEvent_Events].[EventSequence] AS [EventSequence], 
+    [aspnet_WebEvent_Events].[EventOccurrence] AS [EventOccurrence], 
+    [aspnet_WebEvent_Events].[EventCode] AS [EventCode], 
+    [aspnet_WebEvent_Events].[EventDetailCode] AS [EventDetailCode], 
+    [aspnet_WebEvent_Events].[Message] AS [Message], 
+    [aspnet_WebEvent_Events].[ApplicationPath] AS [ApplicationPath], 
+    [aspnet_WebEvent_Events].[ApplicationVirtualPath] AS [ApplicationVirtualPath], 
+    [aspnet_WebEvent_Events].[MachineName] AS [MachineName], 
+    [aspnet_WebEvent_Events].[RequestUrl] AS [RequestUrl], 
+    [aspnet_WebEvent_Events].[ExceptionType] AS [ExceptionType], 
+    [aspnet_WebEvent_Events].[Details] AS [Details]
+    FROM [dbo].[aspnet_WebEvent_Events] AS [aspnet_WebEvent_Events]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="inactive" EntityType="Self.inactive" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [inactive].[ID] AS [ID], 
@@ -2424,6 +2737,17 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <EntitySet Name="tourncomptypes" EntityType="NcmaNamespace.tourncomptype" />
           <EntitySet Name="tourndivisions" EntityType="NcmaNamespace.tourndivision" />
           <EntitySet Name="tournresults" EntityType="NcmaNamespace.tournresult" />
+          <EntitySet Name="aspnet_Applications" EntityType="NcmaNamespace.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="NcmaNamespace.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="NcmaNamespace.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="NcmaNamespace.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="NcmaNamespace.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="NcmaNamespace.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="NcmaNamespace.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="NcmaNamespace.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="NcmaNamespace.aspnet_Users" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="NcmaNamespace.aspnet_UsersInRoles" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="NcmaNamespace.aspnet_WebEvent_Events" />
           <EntitySet Name="inactives" EntityType="NcmaNamespace.inactive" />
           <EntitySet Name="inactivemembers" EntityType="NcmaNamespace.inactivemember" />
           <EntitySet Name="memberissues" EntityType="NcmaNamespace.memberissue" />
@@ -2447,7 +2771,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <EntitySet Name="vwMemberGridLookups" EntityType="NcmaNamespace.vwMemberGridLookup" />
           <EntitySet Name="vwMemberLookups" EntityType="NcmaNamespace.vwMemberLookup" />
           <EntitySet Name="vwTournResults" EntityType="NcmaNamespace.vwTournResult" />
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="Column2" Nullable="true" />
@@ -3040,6 +3364,181 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <Property Name="TournDivisionID" Type="Int32" />
           <Property Name="TournCompTypeID" Type="Int32" />
         </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="LoweredApplicationName" />
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordFormat" />
+            <PropertyRef Name="PasswordSalt" />
+            <PropertyRef Name="IsApproved" />
+            <PropertyRef Name="IsLockedOut" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="LastLoginDate" />
+            <PropertyRef Name="LastPasswordChangedDate" />
+            <PropertyRef Name="LastLockoutDate" />
+            <PropertyRef Name="FailedPasswordAttemptCount" />
+            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="Path" />
+            <PropertyRef Name="LoweredPath" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PropertyNames" />
+            <PropertyRef Name="PropertyValuesString" />
+            <PropertyRef Name="PropertyValuesBinary" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="LoweredRoleName" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+            <PropertyRef Name="IsCurrentVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LoweredUserName" />
+            <PropertyRef Name="IsAnonymous" />
+            <PropertyRef Name="LastActivityDate" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="EventTimeUtc" />
+            <PropertyRef Name="EventTime" />
+            <PropertyRef Name="EventType" />
+            <PropertyRef Name="EventSequence" />
+            <PropertyRef Name="EventOccurrence" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="EventDetailCode" />
+            <PropertyRef Name="MachineName" />
+          </Key>
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="inactive">
           <Key>
             <PropertyRef Name="ID" />
@@ -3301,13 +3800,11 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
         <EntityType Name="vwCertificate">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="FullName" />
-            <PropertyRef Name="InstructorsName" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Completed" Type="Boolean" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="233" FixedLength="false" Unicode="false" />
-          <Property Name="InstructorsName" Type="String" Nullable="false" MaxLength="233" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="InstructorsName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <Property Name="Dojo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="RankText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="InstructorType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -3465,7 +3962,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <Property Name="tourndivisiondesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="tourncomptypedesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -4273,6 +4770,146 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Applications">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Paths">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_PersonalizationAllUsers">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_PersonalizationPerUser">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Profile">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_SchemaVersions">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_UsersInRoles">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_UsersInRoles">
+              <MappingFragment StoreEntitySet="aspnet_UsersInRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="NcmaNamespace.aspnet_WebEvent_Events">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="inactives">
             <EntityTypeMapping TypeName="NcmaNamespace.inactive">
               <MappingFragment StoreEntitySet="inactive">
@@ -4671,7 +5308,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

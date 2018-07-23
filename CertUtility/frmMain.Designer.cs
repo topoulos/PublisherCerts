@@ -42,9 +42,17 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numRangeFrom = new System.Windows.Forms.NumericUpDown();
+            this.btnFindIdsRange = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numRangeTo = new System.Windows.Forms.NumericUpDown();
+            this.btnResetForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCerts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCompleteCerts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCerts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRangeFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRangeTo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReprintLast
@@ -127,6 +135,8 @@
             this.dgCerts.ReadOnly = true;
             this.dgCerts.Size = new System.Drawing.Size(1400, 438);
             this.dgCerts.TabIndex = 8;
+            this.dgCerts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCerts_CellContentClick);
+            this.dgCerts.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgCerts_RowStateChanged);
             // 
             // btnSetSelectedIncomplete
             // 
@@ -150,15 +160,15 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(768, 67);
+            this.txtSearch.Location = new System.Drawing.Point(650, 67);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(254, 20);
+            this.txtSearch.Size = new System.Drawing.Size(152, 20);
             this.txtSearch.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(650, 71);
+            this.label2.Location = new System.Drawing.Point(584, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 12;
@@ -166,7 +176,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1045, 66);
+            this.btnSearch.Location = new System.Drawing.Point(824, 66);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 13;
@@ -174,11 +184,79 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1038, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Find Ids From";
+            // 
+            // numRangeFrom
+            // 
+            this.numRangeFrom.Location = new System.Drawing.Point(1120, 67);
+            this.numRangeFrom.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numRangeFrom.Name = "numRangeFrom";
+            this.numRangeFrom.Size = new System.Drawing.Size(69, 20);
+            this.numRangeFrom.TabIndex = 15;
+            // 
+            // btnFindIdsRange
+            // 
+            this.btnFindIdsRange.Location = new System.Drawing.Point(1337, 66);
+            this.btnFindIdsRange.Name = "btnFindIdsRange";
+            this.btnFindIdsRange.Size = new System.Drawing.Size(75, 23);
+            this.btnFindIdsRange.TabIndex = 14;
+            this.btnFindIdsRange.Text = "Search";
+            this.btnFindIdsRange.UseVisualStyleBackColor = true;
+            this.btnFindIdsRange.Click += new System.EventHandler(this.btnFindIdsRange_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1204, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "To";
+            // 
+            // numRangeTo
+            // 
+            this.numRangeTo.Location = new System.Drawing.Point(1241, 67);
+            this.numRangeTo.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numRangeTo.Name = "numRangeTo";
+            this.numRangeTo.Size = new System.Drawing.Size(69, 20);
+            this.numRangeTo.TabIndex = 17;
+            // 
+            // btnResetForm
+            // 
+            this.btnResetForm.Location = new System.Drawing.Point(1337, 9);
+            this.btnResetForm.Name = "btnResetForm";
+            this.btnResetForm.Size = new System.Drawing.Size(75, 23);
+            this.btnResetForm.TabIndex = 19;
+            this.btnResetForm.Text = "Reset";
+            this.btnResetForm.UseVisualStyleBackColor = true;
+            this.btnResetForm.Click += new System.EventHandler(this.btnResetForm_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1431, 608);
+            this.Controls.Add(this.btnResetForm);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.numRangeTo);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numRangeFrom);
+            this.Controls.Add(this.btnFindIdsRange);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
@@ -199,6 +277,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCerts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCompleteCerts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCerts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRangeFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRangeTo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,6 +300,12 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numRangeFrom;
+        private System.Windows.Forms.Button btnFindIdsRange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numRangeTo;
+        private System.Windows.Forms.Button btnResetForm;
     }
 }
 

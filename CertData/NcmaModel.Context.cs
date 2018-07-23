@@ -53,6 +53,17 @@ namespace CertData
         public virtual DbSet<tourncomptype> tourncomptypes { get; set; }
         public virtual DbSet<tourndivision> tourndivisions { get; set; }
         public virtual DbSet<tournresult> tournresults { get; set; }
+        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
+        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
+        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
+        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
+        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
+        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
+        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
+        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
+        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
+        public virtual DbSet<aspnet_UsersInRoles> aspnet_UsersInRoles { get; set; }
+        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<inactive> inactives { get; set; }
         public virtual DbSet<inactivemember> inactivemembers { get; set; }
         public virtual DbSet<memberissue> memberissues { get; set; }

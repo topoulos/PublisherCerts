@@ -55,6 +55,12 @@
     <Compile Include="applicant.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
@@ -67,10 +73,37 @@
     <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_Profile_GetProperties_Result.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_UsersInRoles.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>NcmaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="blacklist.cs">

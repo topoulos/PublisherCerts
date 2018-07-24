@@ -25,5 +25,6 @@ namespace CertData
         public Nullable<System.DateTime> ThruDate { get; set; }
         public Nullable<bool> Completed { get; set; }
         public Nullable<int> TourneyID { get; set; }
+        public string BatchID { get; set; }
     }
 }

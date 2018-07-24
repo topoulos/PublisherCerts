@@ -48,6 +48,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numRangeTo = new System.Windows.Forms.NumericUpDown();
             this.btnResetForm = new System.Windows.Forms.Button();
+            this.btnSetBatchIncomplete = new System.Windows.Forms.Button();
+            this.btnSetBatchComplete = new System.Windows.Forms.Button();
+            this.btnPerformPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCerts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCompleteCerts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCerts)).BeginInit();
@@ -246,11 +249,44 @@
             this.btnResetForm.UseVisualStyleBackColor = true;
             this.btnResetForm.Click += new System.EventHandler(this.btnResetForm_Click);
             // 
+            // btnSetBatchIncomplete
+            // 
+            this.btnSetBatchIncomplete.Location = new System.Drawing.Point(626, 573);
+            this.btnSetBatchIncomplete.Name = "btnSetBatchIncomplete";
+            this.btnSetBatchIncomplete.Size = new System.Drawing.Size(176, 23);
+            this.btnSetBatchIncomplete.TabIndex = 20;
+            this.btnSetBatchIncomplete.Text = "Set Selected Batch Incomplete";
+            this.btnSetBatchIncomplete.UseVisualStyleBackColor = true;
+            this.btnSetBatchIncomplete.Click += new System.EventHandler(this.btnSetBatchIncomplete_Click);
+            // 
+            // btnSetBatchComplete
+            // 
+            this.btnSetBatchComplete.Location = new System.Drawing.Point(824, 573);
+            this.btnSetBatchComplete.Name = "btnSetBatchComplete";
+            this.btnSetBatchComplete.Size = new System.Drawing.Size(176, 23);
+            this.btnSetBatchComplete.TabIndex = 21;
+            this.btnSetBatchComplete.Text = "Set Selected Batch Complete";
+            this.btnSetBatchComplete.UseVisualStyleBackColor = true;
+            this.btnSetBatchComplete.Click += new System.EventHandler(this.btnSetBatchComplete_Click);
+            // 
+            // btnPerformPrint
+            // 
+            this.btnPerformPrint.Location = new System.Drawing.Point(1243, 573);
+            this.btnPerformPrint.Name = "btnPerformPrint";
+            this.btnPerformPrint.Size = new System.Drawing.Size(176, 23);
+            this.btnPerformPrint.TabIndex = 22;
+            this.btnPerformPrint.Text = "Print Incomplete";
+            this.btnPerformPrint.UseVisualStyleBackColor = true;
+            this.btnPerformPrint.Click += new System.EventHandler(this.btnPerformPrint_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1431, 608);
+            this.Controls.Add(this.btnPerformPrint);
+            this.Controls.Add(this.btnSetBatchComplete);
+            this.Controls.Add(this.btnSetBatchIncomplete);
             this.Controls.Add(this.btnResetForm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numRangeTo);
@@ -306,6 +342,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numRangeTo;
         private System.Windows.Forms.Button btnResetForm;
+        private System.Windows.Forms.Button btnSetBatchIncomplete;
+        private System.Windows.Forms.Button btnSetBatchComplete;
+        private System.Windows.Forms.Button btnPerformPrint;
     }
 }
 

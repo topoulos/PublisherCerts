@@ -115,10 +115,10 @@
     <Compile Include="certificate.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CertRepository.cs" />
     <Compile Include="certtype.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CertRepository.cs" />
     <Compile Include="country.cs">
       <DependentUpon>NcmaModel.tt</DependentUpon>
     </Compile>

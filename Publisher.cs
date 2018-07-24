@@ -87,7 +87,7 @@ namespace PublisherCerts2
                 PrintOut.PrintTenshiSchool(ref doc, certificate);
             }
 
-            await CertRepository.SaveCompleteAsync(certificate.ID);
+            await CertRepository.SaveCompleteAsync(certificate.ID, certificate.BatchID);
 
             doc.Close();
             Thread.Sleep(new TimeSpan(0,0,5));
@@ -130,6 +130,7 @@ namespace PublisherCerts2
             LogData.LogLine("PRINTING:" + batchId + "=================================================================================");
             foreach (vwCertificate certificate in certs)
             {
+                certificate.BatchID = batchId;
                 await PrintOutCertificateAsync(app, certificate);
                 LogData.LogLine($"{certificate.CertType} - {certificate.Dojo} - {certificate.FullName} - {certificate.ID}");
             }

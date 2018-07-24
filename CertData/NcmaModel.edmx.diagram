@@ -58,13 +58,13 @@
         <EntityTypeShape EntityType="NcmaNamespace.vw_aspnet_WebPartState_User" Width="1.5" PointX="0.75" PointY="19.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwActiveInstructor" Width="1.5" PointX="2.75" PointY="19.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwAllGridLookup" Width="1.5" PointX="4.75" PointY="19.75" />
-        <EntityTypeShape EntityType="NcmaNamespace.vwCertificate" Width="1.5" PointX="6.75" PointY="19.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwInactiveGridLookup" Width="1.5" PointX="8.75" PointY="19.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwInvoice" Width="1.5" PointX="18.75" PointY="19.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwMemberGrid" Width="1.5" PointX="20.75" PointY="0.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwMemberGridLookup" Width="1.5" PointX="20.75" PointY="5.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwMemberLookup" Width="1.5" PointX="20.75" PointY="10.75" />
         <EntityTypeShape EntityType="NcmaNamespace.vwTournResult" Width="1.5" PointX="10.75" PointY="20.75" />
+        <EntityTypeShape EntityType="NcmaNamespace.vwCertificate" Width="1.5" PointX="21.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

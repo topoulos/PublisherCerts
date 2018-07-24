@@ -18,7 +18,7 @@ namespace CertData
             }
         }
 
-        public static async Task SaveCompleteAsync(int certId)
+        public static async Task SaveCompleteAsync(int certId, string batchId = null)
         {
             using (var context = new NcmaContext())
             {
@@ -26,6 +26,9 @@ namespace CertData
                 if (retCert != null)
                 {
                     retCert.Completed = true;
+
+                    if (batchId != null &&  retCert.BatchID == null)
+                        retCert.BatchID = batchId;
                 }
                 await context.SaveChangesAsync();
             }
@@ -38,6 +41,7 @@ namespace CertData
                 return await context.vwCertificates
                     .Where(c => c.FullName.Contains(searchTerm)
                         || c.Dojo.Contains(searchTerm)
+                        || c.BatchID.Contains(searchTerm)
                         || c.InstructorsName.Contains(searchTerm)
                         || c.RankText.Contains(searchTerm)).OrderByDescending(c => c.ID)
                     .ToListAsync();
@@ -89,5 +93,36 @@ namespace CertData
                     .ToListAsync();
             }
         }
+
+        public static async Task SaveBatchId(string batchId, int certId)
+        {
+            using (var context = new NcmaContext())
+            {
+                var cert = await context.membercerts.FindAsync(certId);
+                cert.BatchID = batchId;
+                await context.SaveChangesAsync();
+            }
+        }
+
+        public static async Task<List<vwCertificate>> GetCertsByBatchId(string batchId)
+        {
+            using (var context = new NcmaContext())
+            {
+                return await context.vwCertificates
+                    .Where(c => c.BatchID == batchId)
+                    .ToListAsync();
+            }
+        }
+
+        public static async Task SetCertsCompletionStatusByBatchId(string batchId, bool isComplete)
+        {
+            using (var context = new NcmaContext())
+            {
+                var certs = await context.membercerts.Where(c => c.BatchID == batchId).ToListAsync();
+                certs.ForEach(c => c.Completed = isComplete);
+                await context.SaveChangesAsync();
+            }
+        }
+
     }
 }

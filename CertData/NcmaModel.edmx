@@ -466,6 +466,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.inactivemember' does not have a p
           <Property Name="ThruDate" Type="datetime" />
           <Property Name="Completed" Type="bit" />
           <Property Name="TourneyID" Type="int" />
+          <Property Name="BatchID" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="memberdiscount">
           <Key>
@@ -798,12 +799,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwCertificates' does not have a p
           <Property Name="TournamentDate" Type="datetime2" Precision="7" />
           <Property Name="FromDate" Type="datetime" />
           <Property Name="ThruDate" Type="datetime" />
-          <Property Name="InstructorTypeID" Type="int" />
-          <Property Name="TournamentID" Type="int" />
-          <Property Name="MemberID" Type="int" />
-          <Property Name="DojoID" Type="int" />
-          <Property Name="InstructorID" Type="int" />
-          <Property Name="CertificateTypeID" Type="int" />
+          <Property Name="BatchID" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_4170_ncma.dbo.vwInactiveGridLookup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1948,12 +1944,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
     [vwCertificates].[TournamentDate] AS [TournamentDate], 
     [vwCertificates].[FromDate] AS [FromDate], 
     [vwCertificates].[ThruDate] AS [ThruDate], 
-    [vwCertificates].[InstructorTypeID] AS [InstructorTypeID], 
-    [vwCertificates].[TournamentID] AS [TournamentID], 
-    [vwCertificates].[MemberID] AS [MemberID], 
-    [vwCertificates].[DojoID] AS [DojoID], 
-    [vwCertificates].[InstructorID] AS [InstructorID], 
-    [vwCertificates].[CertificateTypeID] AS [CertificateTypeID]
+    [vwCertificates].[BatchID] AS [BatchID]
     FROM [dbo].[vwCertificates] AS [vwCertificates]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwInactiveGridLookup" EntityType="Self.vwInactiveGridLookup" store:Type="Views" store:Schema="dbo">
@@ -2764,13 +2755,13 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="NcmaNamespace.vw_aspnet_WebPartState_User" />
           <EntitySet Name="vwActiveInstructors" EntityType="NcmaNamespace.vwActiveInstructor" />
           <EntitySet Name="vwAllGridLookups" EntityType="NcmaNamespace.vwAllGridLookup" />
-          <EntitySet Name="vwCertificates" EntityType="NcmaNamespace.vwCertificate" />
           <EntitySet Name="vwInactiveGridLookups" EntityType="NcmaNamespace.vwInactiveGridLookup" />
           <EntitySet Name="vwInvoices" EntityType="NcmaNamespace.vwInvoice" />
           <EntitySet Name="vwMemberGrids" EntityType="NcmaNamespace.vwMemberGrid" />
           <EntitySet Name="vwMemberGridLookups" EntityType="NcmaNamespace.vwMemberGridLookup" />
           <EntitySet Name="vwMemberLookups" EntityType="NcmaNamespace.vwMemberLookup" />
           <EntitySet Name="vwTournResults" EntityType="NcmaNamespace.vwTournResult" />
+          <EntitySet Name="vwCertificates" EntityType="NcmaNamespace.vwCertificate" />
           </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -3271,6 +3262,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <Property Name="ThruDate" Type="DateTime" Precision="3" />
           <Property Name="Completed" Type="Boolean" />
           <Property Name="TourneyID" Type="Int32" />
+          <Property Name="BatchID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="memberdiscount">
           <Key>
@@ -3797,28 +3789,6 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="RankText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwCertificate">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Completed" Type="Boolean" />
-          <Property Name="FullName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="InstructorsName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="Dojo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="RankText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="InstructorType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="CertType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="TournamentDate" Type="DateTime" Precision="7" />
-          <Property Name="FromDate" Type="DateTime" Precision="3" />
-          <Property Name="ThruDate" Type="DateTime" Precision="3" />
-          <Property Name="InstructorTypeID" Type="Int32" />
-          <Property Name="TournamentID" Type="Int32" />
-          <Property Name="MemberID" Type="Int32" />
-          <Property Name="DojoID" Type="Int32" />
-          <Property Name="InstructorID" Type="Int32" />
-          <Property Name="CertificateTypeID" Type="Int32" />
-        </EntityType>
         <EntityType Name="vwInactiveGridLookup">
           <Key>
             <PropertyRef Name="FullName" />
@@ -3961,6 +3931,23 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <Property Name="tourndivisionname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="tourndivisiondesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="tourncomptypedesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCertificate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Completed" Type="Boolean" />
+          <Property Name="FullName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="InstructorsName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Dojo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RankText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstructorType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CertType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TournamentDate" Type="DateTime" Precision="7" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ThruDate" Type="DateTime" Precision="3" />
+          <Property Name="BatchID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -4654,6 +4641,7 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
           <EntitySetMapping Name="membercerts">
             <EntityTypeMapping TypeName="NcmaNamespace.membercert">
               <MappingFragment StoreEntitySet="membercerts">
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
                 <ScalarProperty Name="TourneyID" ColumnName="TourneyID" />
                 <ScalarProperty Name="Completed" ColumnName="Completed" />
                 <ScalarProperty Name="ThruDate" ColumnName="ThruDate" />
@@ -5148,29 +5136,6 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwCertificates">
-            <EntityTypeMapping TypeName="NcmaNamespace.vwCertificate">
-              <MappingFragment StoreEntitySet="vwCertificates">
-                <ScalarProperty Name="CertificateTypeID" ColumnName="CertificateTypeID" />
-                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
-                <ScalarProperty Name="DojoID" ColumnName="DojoID" />
-                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-                <ScalarProperty Name="TournamentID" ColumnName="TournamentID" />
-                <ScalarProperty Name="InstructorTypeID" ColumnName="InstructorTypeID" />
-                <ScalarProperty Name="ThruDate" ColumnName="ThruDate" />
-                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
-                <ScalarProperty Name="TournamentDate" ColumnName="TournamentDate" />
-                <ScalarProperty Name="CertType" ColumnName="CertType" />
-                <ScalarProperty Name="InstructorType" ColumnName="InstructorType" />
-                <ScalarProperty Name="RankText" ColumnName="RankText" />
-                <ScalarProperty Name="Dojo" ColumnName="Dojo" />
-                <ScalarProperty Name="InstructorsName" ColumnName="InstructorsName" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Completed" ColumnName="Completed" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwInactiveGridLookups">
             <EntityTypeMapping TypeName="NcmaNamespace.vwInactiveGridLookup">
               <MappingFragment StoreEntitySet="vwInactiveGridLookup">
@@ -5305,6 +5270,24 @@ warning 6002: The table/view 'DB_4170_ncma.dbo.vwTournResult' does not have a pr
                 <ScalarProperty Name="TournamentID" ColumnName="TournamentID" />
                 <ScalarProperty Name="tournresultid" ColumnName="tournresultid" />
                 <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCertificates">
+            <EntityTypeMapping TypeName="NcmaNamespace.vwCertificate">
+              <MappingFragment StoreEntitySet="vwCertificates">
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="ThruDate" ColumnName="ThruDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="TournamentDate" ColumnName="TournamentDate" />
+                <ScalarProperty Name="CertType" ColumnName="CertType" />
+                <ScalarProperty Name="InstructorType" ColumnName="InstructorType" />
+                <ScalarProperty Name="RankText" ColumnName="RankText" />
+                <ScalarProperty Name="Dojo" ColumnName="Dojo" />
+                <ScalarProperty Name="InstructorsName" ColumnName="InstructorsName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

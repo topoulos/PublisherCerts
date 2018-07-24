@@ -104,6 +104,10 @@
       <Project>{36710bb4-1409-413f-a4e9-a43f3c3d1f61}</Project>
       <Name>CertData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PublisherCerts2.csproj">
+      <Project>{40ca7a92-880c-4b42-92ff-691cec94cda5}</Project>
+      <Name>PublisherCerts2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

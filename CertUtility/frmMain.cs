@@ -148,7 +148,7 @@ namespace CertUtility
 
             foreach (DataGridViewRow row in dgCerts.SelectedRows)
             {
-                var id = (int)row.Cells[0].Value;
+                var id = (int)row.Cells["ID"].Value;
                 await CertRepository.SaveIncompleteAsync(id);
             }
 
@@ -167,7 +167,7 @@ namespace CertUtility
 
             foreach (DataGridViewRow row in dgCerts.SelectedRows)
             {
-                var id = (int)row.Cells[0].Value;
+                var id = (int)row.Cells["ID"].Value;
                 await CertRepository.SaveCompleteAsync(id);
             }
 
@@ -237,7 +237,7 @@ namespace CertUtility
 
             foreach (DataGridViewRow row in dgCerts.SelectedRows)
             {
-                var id = (int)row.Cells[0].Value;
+                var id = (int)row.Cells["ID"].Value;
                 SelectedIds.Add(id);
             }
         }
@@ -246,7 +246,7 @@ namespace CertUtility
         {
             foreach (DataGridViewRow row in dgCerts.Rows)
             {
-                var id = (int)row.Cells[0].Value;
+                var id = (int)row.Cells["ID"].Value;
 
                 row.Selected = SelectedIds.Contains(id);
             }
@@ -267,6 +267,66 @@ namespace CertUtility
             await LoadAllCertificatesAsync();
             this.Cursor = Cursors.Default;
             
+        }
+
+        private async void btnPerformPrint_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Really Start Print?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            this.Cursor = Cursors.WaitCursor;
+
+            await PublisherCerts2.Publisher.RunMsPublisher();
+            await ReplayQuery();
+            ReselectRows();
+
+            this.Cursor = Cursors.Default;
+
+            MessageBox.Show("Certificates Sent to Printer");
+        }
+
+        private async void btnSetBatchIncomplete_Click(object sender, EventArgs e)
+        {
+            await SetBatchCompletionStatusForSelectedRow(false);
+        }
+
+        private async Task SetBatchCompletionStatusForSelectedRow(bool isComplete)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            if (dgCerts.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("No Rows Selected");
+                return;
+            }
+
+            var batchId = dgCerts.SelectedRows[0].Cells["BatchID"].Value;
+
+            if (batchId == null)
+            {
+                MessageBox.Show("Row Selected has no Batch Id");
+                return;
+            }
+
+            foreach (DataGridViewRow row in dgCerts.Rows)
+            {
+                row.Selected = row.Cells["BatchID"].Value?.ToString() == batchId?.ToString();
+            }
+
+            SaveSelectedRows();
+
+            await CertRepository.SetCertsCompletionStatusByBatchId(batchId.ToString(), isComplete);
+
+            await ReplayQuery();
+            ReselectRows();
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private async void btnSetBatchComplete_Click(object sender, EventArgs e)
+        {
+            await SetBatchCompletionStatusForSelectedRow(true);
         }
     }
 }

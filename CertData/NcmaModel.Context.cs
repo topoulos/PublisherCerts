@@ -80,13 +80,13 @@ namespace CertData
         public virtual DbSet<vw_aspnet_WebPartState_User> vw_aspnet_WebPartState_User { get; set; }
         public virtual DbSet<vwActiveInstructor> vwActiveInstructors { get; set; }
         public virtual DbSet<vwAllGridLookup> vwAllGridLookups { get; set; }
-        public virtual DbSet<vwCertificate> vwCertificates { get; set; }
         public virtual DbSet<vwInactiveGridLookup> vwInactiveGridLookups { get; set; }
         public virtual DbSet<vwInvoice> vwInvoices { get; set; }
         public virtual DbSet<vwMemberGrid> vwMemberGrids { get; set; }
         public virtual DbSet<vwMemberGridLookup> vwMemberGridLookups { get; set; }
         public virtual DbSet<vwMemberLookup> vwMemberLookups { get; set; }
         public virtual DbSet<vwTournResult> vwTournResults { get; set; }
+        public virtual DbSet<vwCertificate> vwCertificates { get; set; }
     
         public virtual ObjectResult<string> aspnet_AnyDataInTables(Nullable<int> tablesToCheck)
         {

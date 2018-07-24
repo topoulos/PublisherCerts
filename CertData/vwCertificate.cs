@@ -25,11 +25,6 @@ namespace CertData
         public Nullable<System.DateTime> TournamentDate { get; set; }
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ThruDate { get; set; }
-        public Nullable<int> InstructorTypeID { get; set; }
-        public Nullable<int> TournamentID { get; set; }
-        public Nullable<int> MemberID { get; set; }
-        public Nullable<int> DojoID { get; set; }
-        public Nullable<int> InstructorID { get; set; }
-        public Nullable<int> CertificateTypeID { get; set; }
+        public string BatchID { get; set; }
     }
 }

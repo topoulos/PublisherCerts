@@ -297,6 +297,7 @@ namespace CertUtility
             if (dgCerts.SelectedRows.Count < 1)
             {
                 MessageBox.Show("No Rows Selected");
+                this.Cursor = Cursors.Default;
                 return;
             }
 
@@ -305,6 +306,7 @@ namespace CertUtility
             if (batchId == null)
             {
                 MessageBox.Show("Row Selected has no Batch Id");
+                this.Cursor = Cursors.Default;
                 return;
             }
 

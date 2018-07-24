@@ -10,7 +10,7 @@ namespace PublisherCerts2
 {
     public static class LogData
     {
-        public static void LogLine(string strLogText, string batchId, bool useDate = true)
+        public static void LogLine(string strLogText, string batchId, bool useDate = false)
         {
             var logPath = $"{batchId}.txt";
 

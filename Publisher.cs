@@ -113,29 +113,31 @@ namespace PublisherCerts2
                 return;
 
 
-            LogData.LogLine("FOUND:" + batchId + "=================================================================================");
             foreach(var cert in certs)
-            {
                 Console.WriteLine(cert.ID + " - " + cert.CertType + " - " + cert.Dojo + " = "  + cert.FullName + " = " + batchId);
-                LogData.LogLine($"{cert.CertType} - {cert.Dojo} - {cert.FullName} - {cert.ID} - {batchId}");
-
-            }
-            LogData.LogLine($" ");
-            LogData.LogLine($" ");
 
             var app = new Application();
             app.ActiveWindow.Visible = true;
 
 
-            LogData.LogLine("PRINTING:" + batchId + "=================================================================================");
+            LogData.LogLine("BATCH:  " + batchId, batchId);
+            LogData.LogLine("==============================", batchId);
+            LogData.LogLine($" ", batchId);
+            LogData.LogLine($" ", batchId);
+
             foreach (vwCertificate certificate in certs)
             {
                 certificate.BatchID = batchId;
                 await PrintOutCertificateAsync(app, certificate);
-                LogData.LogLine($"{certificate.CertType} - {certificate.Dojo} - {certificate.FullName} - {certificate.ID}");
+                LogData.LogLine($"{certificate.ID}: {certificate.CertType} - {certificate.Dojo} - {certificate.FullName} - ", batchId);
             }
-            LogData.LogLine($" ");
-            LogData.LogLine($" ");
+
+            LogData.LogLine($" ", batchId);
+            LogData.LogLine($" ", batchId);
+            LogData.LogLine("==============================", batchId);
+            LogData.LogLine("TOTAL CERTS:  " + certs.Count().ToString(), batchId);
+
+            LogData.PrintFile(batchId);
 
             app.Quit();
 
